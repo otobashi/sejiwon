@@ -2,7 +2,7 @@
 <div role="main" class="ui-content jqm-content jqm-fullwidth">
     <div class="container-fluid">
             <div class="navbar-inner">
-                 <h6><i class="icon-info-sign"></i>&nbsp;Pinky</h6>
+                 <h6><i class="icon-info-sign"></i>&nbsp;<?=$logo?></h6>
             </div>
             <hr>
         <div class="row-fluid">
@@ -18,7 +18,7 @@
 									</div>
 				          <!-- Main hero unit for a primary marketing message or call to action -->
 				          <div class="hero-unit">
-				            <?=$msg?>
+				            <pre><?=$msg?></pre>
 				          </div>
 				
 				      </div>

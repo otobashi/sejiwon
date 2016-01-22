@@ -5,7 +5,7 @@
 /*                                                                                                */
 /* 2.모       듈 : Model                                                                          */
 /*                                                                                                */
-/* 3.프로그램 ID : calendar_model.php                                                                 */
+/* 3.프로그램 ID : calendar_model.php                                                             */
 /*                                                                                                */
 /* 4.기 능 설 명 : __construct    - 초기화                                                        */
 /*                 add            - work Table Insert                                             */
@@ -32,7 +32,7 @@ class Calendar_model extends CI_Model {
 // Rate Calendar
 //--------------------------------------------------------------------------------------------------
   function rate_calendar($option){
-    return $this->db->query(" 
+    return $this->db->query("
                               SELECT cal.ymd as ymd
                                     ,cal.day as day
                                     ,hol.description as memo

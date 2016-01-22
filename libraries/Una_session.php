@@ -81,7 +81,7 @@ class Una_session {
         {
               setcookie(session_name(), '', time()-42000, '/');
         }
-        session_destroy();
+        session_destroy();  // 2015.07.17 shlee 주석으로 막았음.
     }
     
     /**
@@ -139,8 +139,11 @@ class Una_session {
     */
     function _sess_run()
     {
-        session_start();
-        
+//        session_start();  // 2015.07.17 shlee 주석으로 막고 아래와 같이 변경함.
+        if(!isset($_SESSION)){
+            session_start();
+        } // 2015.07.19 추가함.
+
         // check if session id needs regeneration
         if ( $this->_session_id_expired() )
         {

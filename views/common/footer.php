@@ -1,38 +1,111 @@
-﻿
+﻿        </div><!--/span-->
+
+
+        <div class="span2">
+          <div class="well sidebar-nav" style="margin:0 0 5 0;padding:0px;">
+              <ul class="nav nav-list">              
+                <li class="nav-header"><?=$login_info?></li>
+                <li class="divider"></li>
+
+                <?php
+                    if($user_id){
+                ?>
+                        <li><a href="#"><?=$name?>&nbsp;<?php if($auth_name){ echo '['.$auth_name.']';}?></li>
+                        <li>
+                          <a href="/index.php/common/logout" class="btn"><?=$logout_button?></a>
+                        </li>
+                <?php
+                    }
+                    else{
+                ?>
+                        <form name="sign" action="/index.php/common/login" method="post" style="text-align:center">
+                        <li>
+                            <input name="user_id" type="text" placeholder="<?=$id_info?>" data-mini="true" style="width:150;height:30;margin:0 0 0 20;padding:0px;">
+                            <input name="password" type="password" placeholder="<?=$password_info?>" data-mini="true" style="width:150;height:30;margin:0 0 0 20;padding:0px;">
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <input type="submit" class="btn btn-info" value="<?=$login_button?>"/>
+                            <a href="/index.php/common/register" class="btn btn-primary"><?=$register_button?></a>
+                        </li>
+                        </form>
+                <?php
+                    }
+                ?>
+
+              </ul>
+
+          </div>
+
+          <!-- Menu -->
+          <div class="accordion" id="sejiwon_menu">
+
+              <?php
+              foreach($menu1_use_list as $menu1){
+              ?>
+                  <div class="accordion-group">
+
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle btn" data-toggle="collapse" data-parent="#sejiwon_menu" href="#menu_<?=$menu1->menu_id?>">
+                            <?=$menu1->menu?>
+                          </a>
+                      </div>
+
+                      <div id="menu_<?=$menu1->menu_id?>" class="accordion-body collapse in">
+
+                          <div class="accordion-inner">
+                              <ul class="nav nav-list">
+                                  <?php
+                                  foreach($menu2_use_list as $menu2){
+                                    if($menu1->menu_id == $menu2->menu_high_id){
+                                  ?>
+                                      <li class="nav-header" style="margin:0px;padding:0px;"><?=$menu2->menu?></li>
+                                      <?php
+                                      foreach($menu3_use_list as $menu3){
+                                        if($menu2->menu_id == $menu3->menu_high_id){
+                                      ?>
+                                          <li><a href="#" style="margin:0 0 0 20;padding:0px;"><?=$menu3->menu?></a></li>
+                                      <?php
+                                        }
+                                      }
+                                      ?>
+                                  <?php                                      
+                                    }
+                                  }
+                                  ?>
+                              </ul>
+                          </div>
+
+                      </div>
+
+                  </div>
+              <?php
+              }
+              ?>
+
+          </div>
+
+        </div><!--/span-->
+
+      </div><!--/row-->
+
       <hr>
 
-        <div class="well well-small">
-            <h5>HOT KEY</h5>
+    <!--div class="well well-small">
+        <h5>HOT KEY</h5>
 
-            <ul class="nav nav-pills" style="margin:0 0 0 0">
-                <li class="disabled"><a href="#"><small>가계부</small></a></li>
-                <li><a href="/index.php/pinky_write/write_cal"><small>달력</small></a></li>
-                <li><a href="/index.php/pinky_write/acct_mgr/<?=date('Y-m-d')?>"><small>쓰기</small></a></li>
-                <!--li><a href="/index.php/acct/acct_mgr"><small>지출</small></a></li>
-                <li><a href="/index.php/acct/plan_mgr"><small>예산</small></a></li-->
-            </ul>
-
-            <!--ul class="nav nav-pills" style="margin:0 0 0 0">
-                <li class="disabled"><a href="#"><small>보고서</small></a></li>
-                <li><a href="/index.php/report/set_year"><small>년결산</small></a></li>
-                <li><a href="/index.php/report/zero_cal"><small>무지출캘린더</small></a></li>
-                <li><a href="/index.php/report/grp_year"><small>월별비중</small></a></li>
-            </ul-->
-
-            <ul class="nav nav-pills" style="margin:0 0 0 0">
-                <li class="disabled"><a href="#"><small>환경설정</small></a></li>
-                <li><a href="/index.php/pinky_config/acct_code"><small>분류</small></a></li>
-                <li><a href="/index.php/pinky_config/cash_code"><small>통장/지갑</small></a></li>
-                <li><a href="/index.php/common/register"><small>사용자등록</small></a></li>
-            </ul>
-
-        </div>
+        <ul class="nav nav-pills" style="margin:0 0 0 0">
+            <li class="disabled"><a href="#"><small>가계부</small></a></li>
+            <li><a href="/index.php/pinky_write/write_cal"><small>달력</small></a></li>
+            <li><a href="/index.php/pinky_write/acct_mgr/<?=date('Y-m-d')?>"><small>쓰기</small></a></li>
+        </ul>
+    </div-->
 
       <footer>
         <p>&copy; Created by Sejiwon co.,Ltd</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
