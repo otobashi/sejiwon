@@ -60,7 +60,7 @@ class Una_common extends CI_Controller {
     $config['smtp_port']    = '465';
     $config['smtp_timeout'] = '7';
     $config['smtp_user']    = 'otobashi@gmail.com';
-    $config['smtp_pass']    = 'sk*sh1120';
+    $config['smtp_pass']    = 'sk********';
     $config['charset']      = 'utf-8';
     $config['newline']      = "\r\n";
     $config['mailtype']     = 'html'; // or html
